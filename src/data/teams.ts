@@ -1,4 +1,4 @@
-export type TournamentType = 'worldcup' | 'libertadores' | 'brasileiro' | 'escolar';
+export type TournamentType = 'worldcup32' | 'worldcup48' | 'libertadores' | 'brasileiro' | 'escolar';
 
 export interface Team {
   id: string;
@@ -19,10 +19,66 @@ export interface Tournament {
   teams: Team[];
 }
 
-// World Cup teams with flag emojis
-export const worldCupTeams: Team[] = [
+// World Cup teams with flag emojis - extended for 48 teams
+export const worldCupTeams48: Team[] = [
+  // Pot 1 - Top ranked
+  { id: 'bra', name: 'Brasil', shortName: 'BRA', flag: '🇧🇷', pot: 1 },
+  { id: 'arg', name: 'Argentina', shortName: 'ARG', flag: '🇦🇷', pot: 1 },
+  { id: 'fra', name: 'França', shortName: 'FRA', flag: '🇫🇷', pot: 1 },
+  { id: 'eng', name: 'Inglaterra', shortName: 'ENG', flag: '🏴󠁧󠁢󠁥󠁮󠁧󠁿', pot: 1 },
+  { id: 'bel', name: 'Bélgica', shortName: 'BEL', flag: '🇧🇪', pot: 1 },
+  { id: 'ned', name: 'Holanda', shortName: 'NED', flag: '🇳🇱', pot: 1 },
+  { id: 'por', name: 'Portugal', shortName: 'POR', flag: '🇵🇹', pot: 1 },
+  { id: 'esp', name: 'Espanha', shortName: 'ESP', flag: '🇪🇸', pot: 1 },
+  { id: 'ita', name: 'Itália', shortName: 'ITA', flag: '🇮🇹', pot: 1 },
+  { id: 'ger', name: 'Alemanha', shortName: 'GER', flag: '🇩🇪', pot: 1 },
+  { id: 'cro', name: 'Croácia', shortName: 'CRO', flag: '🇭🇷', pot: 1 },
+  { id: 'uru', name: 'Uruguai', shortName: 'URU', flag: '🇺🇾', pot: 1 },
+  // Pot 2
+  { id: 'usa', name: 'Estados Unidos', shortName: 'USA', flag: '🇺🇸', pot: 2 },
+  { id: 'mex', name: 'México', shortName: 'MEX', flag: '🇲🇽', pot: 2 },
+  { id: 'can', name: 'Canadá', shortName: 'CAN', flag: '🇨🇦', pot: 2 },
+  { id: 'den', name: 'Dinamarca', shortName: 'DEN', flag: '🇩🇰', pot: 2 },
+  { id: 'swi', name: 'Suíça', shortName: 'SUI', flag: '🇨🇭', pot: 2 },
+  { id: 'col', name: 'Colômbia', shortName: 'COL', flag: '🇨🇴', pot: 2 },
+  { id: 'sen', name: 'Senegal', shortName: 'SEN', flag: '🇸🇳', pot: 2 },
+  { id: 'mar', name: 'Marrocos', shortName: 'MAR', flag: '🇲🇦', pot: 2 },
+  { id: 'jpn', name: 'Japão', shortName: 'JPN', flag: '🇯🇵', pot: 2 },
+  { id: 'kor', name: 'Coreia do Sul', shortName: 'KOR', flag: '🇰🇷', pot: 2 },
+  { id: 'aus', name: 'Austrália', shortName: 'AUS', flag: '🇦🇺', pot: 2 },
+  { id: 'pol', name: 'Polônia', shortName: 'POL', flag: '🇵🇱', pot: 2 },
+  // Pot 3
+  { id: 'srb', name: 'Sérvia', shortName: 'SRB', flag: '🇷🇸', pot: 3 },
+  { id: 'ukr', name: 'Ucrânia', shortName: 'UKR', flag: '🇺🇦', pot: 3 },
+  { id: 'aut', name: 'Áustria', shortName: 'AUT', flag: '🇦🇹', pot: 3 },
+  { id: 'swe', name: 'Suécia', shortName: 'SWE', flag: '🇸🇪', pot: 3 },
+  { id: 'cze', name: 'República Tcheca', shortName: 'CZE', flag: '🇨🇿', pot: 3 },
+  { id: 'wal', name: 'País de Gales', shortName: 'WAL', flag: '🏴󠁧󠁢󠁷󠁬󠁳󠁿', pot: 3 },
+  { id: 'sco', name: 'Escócia', shortName: 'SCO', flag: '🏴󠁧󠁢󠁳󠁣󠁴󠁿', pot: 3 },
+  { id: 'chi', name: 'Chile', shortName: 'CHI', flag: '🇨🇱', pot: 3 },
+  { id: 'ecu', name: 'Equador', shortName: 'ECU', flag: '🇪🇨', pot: 3 },
+  { id: 'per', name: 'Peru', shortName: 'PER', flag: '🇵🇪', pot: 3 },
+  { id: 'par', name: 'Paraguai', shortName: 'PAR', flag: '🇵🇾', pot: 3 },
+  { id: 'ven', name: 'Venezuela', shortName: 'VEN', flag: '🇻🇪', pot: 3 },
+  // Pot 4
+  { id: 'irn', name: 'Irã', shortName: 'IRN', flag: '🇮🇷', pot: 4 },
+  { id: 'qat', name: 'Catar', shortName: 'QAT', flag: '🇶🇦', pot: 4 },
+  { id: 'ksa', name: 'Arábia Saudita', shortName: 'KSA', flag: '🇸🇦', pot: 4 },
+  { id: 'uae', name: 'Emirados Árabes', shortName: 'UAE', flag: '🇦🇪', pot: 4 },
+  { id: 'tun', name: 'Tunísia', shortName: 'TUN', flag: '🇹🇳', pot: 4 },
+  { id: 'egy', name: 'Egito', shortName: 'EGY', flag: '🇪🇬', pot: 4 },
+  { id: 'nga', name: 'Nigéria', shortName: 'NGA', flag: '🇳🇬', pot: 4 },
+  { id: 'gha', name: 'Gana', shortName: 'GHA', flag: '🇬🇭', pot: 4 },
+  { id: 'cmr', name: 'Camarões', shortName: 'CMR', flag: '🇨🇲', pot: 4 },
+  { id: 'civ', name: 'Costa do Marfim', shortName: 'CIV', flag: '🇨🇮', pot: 4 },
+  { id: 'alg', name: 'Argélia', shortName: 'ALG', flag: '🇩🇿', pot: 4 },
+  { id: 'crc', name: 'Costa Rica', shortName: 'CRC', flag: '🇨🇷', pot: 4 },
+];
+
+// World Cup 32 teams
+export const worldCupTeams32: Team[] = [
   // Pot 1
-  { id: 'qat', name: 'Qatar', shortName: 'QAT', flag: '🇶🇦', pot: 1 },
+  { id: 'qat', name: 'Catar', shortName: 'QAT', flag: '🇶🇦', pot: 1 },
   { id: 'bra', name: 'Brasil', shortName: 'BRA', flag: '🇧🇷', pot: 1 },
   { id: 'bel', name: 'Bélgica', shortName: 'BEL', flag: '🇧🇪', pot: 1 },
   { id: 'fra', name: 'França', shortName: 'FRA', flag: '🇫🇷', pot: 1 },
@@ -76,7 +132,7 @@ export const libertadoresTeams: Team[] = [
   // Others
   { id: 'pen', name: 'Peñarol', shortName: 'PEN', flag: '🟡⚫', country: 'Uruguai' },
   { id: 'nac', name: 'Nacional', shortName: 'NAC', flag: '🔵⚪🔴', country: 'Uruguai' },
-  { id: 'col', name: 'Colo-Colo', shortName: 'COL', flag: '⚪⚫', country: 'Chile' },
+  { id: 'colo', name: 'Colo-Colo', shortName: 'COL', flag: '⚪⚫', country: 'Chile' },
   { id: 'uni', name: 'Universidad de Chile', shortName: 'UCH', flag: '🔵', country: 'Chile' },
   { id: 'ali', name: 'Alianza Lima', shortName: 'ALI', flag: '🔵⚪', country: 'Peru' },
   { id: 'cer', name: 'Cerro Porteño', shortName: 'CER', flag: '🔵🔴', country: 'Paraguai' },
@@ -116,13 +172,22 @@ export const escolarTeams: Team[] = [
 
 export const tournaments: Tournament[] = [
   {
-    id: 'worldcup',
-    name: 'Copa do Mundo',
-    description: 'Sorteio estilo FIFA com 32 seleções em 8 grupos',
+    id: 'worldcup48',
+    name: 'Copa do Mundo 48',
+    description: 'Formato 2026 com 48 seleções em 12 grupos',
+    icon: '🏆',
+    groupCount: 12,
+    teamsPerGroup: 4,
+    teams: worldCupTeams48,
+  },
+  {
+    id: 'worldcup32',
+    name: 'Copa do Mundo 32',
+    description: 'Formato clássico com 32 seleções em 8 grupos',
     icon: '🏆',
     groupCount: 8,
     teamsPerGroup: 4,
-    teams: worldCupTeams,
+    teams: worldCupTeams32,
   },
   {
     id: 'libertadores',

@@ -6,6 +6,7 @@ import { DrawAnimation } from '@/components/DrawAnimation';
 import { DrawResults } from '@/components/DrawResults';
 import { Button } from '@/components/ui/button';
 import { tournaments, getTournament, Team, TournamentType } from '@/data/teams';
+import { cn } from '@/lib/utils';
 import { toast } from 'sonner';
 import { Play, ArrowLeft } from 'lucide-react';
 
@@ -157,7 +158,12 @@ const Index = () => {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            <div className={cn(
+              "grid gap-4 max-w-6xl mx-auto",
+              tournaments.length > 4 
+                ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3" 
+                : "grid-cols-1 md:grid-cols-2"
+            )}>
               {tournaments.map((t) => (
                 <TournamentCard
                   key={t.id}
